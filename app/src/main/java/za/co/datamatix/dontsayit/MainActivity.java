@@ -1,41 +1,27 @@
 package za.co.datamatix.dontsayit;
 
-        import java.util.ArrayList;
-        import java.util.Arrays;
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
-        import java.util.Random;
-
         import android.app.Activity;
-        import android.app.ProgressDialog;
-        import android.content.Intent;
-        import android.content.res.Configuration;
-        import android.media.AudioManager;
-        import android.media.ToneGenerator;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.os.CountDownTimer;
-        import android.util.Log;
-        import android.view.View;
-        import android.view.WindowManager;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ListView;
-        import android.widget.AdapterView.OnItemClickListener;
-        import android.widget.ProgressBar;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.app.ProgressDialog;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-        import com.parse.CountCallback;
-        import com.parse.FindCallback;
-        import com.parse.FunctionCallback;
-        import com.parse.GetCallback;
-        import com.parse.Parse;
-        import com.parse.ParseCloud;
-        import com.parse.ParseException;
-        import com.parse.ParseObject;
-        import com.parse.ParseQuery;
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     // Declare Variables
@@ -54,7 +40,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         // Get the view from listview_main.xml
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Parse.enableLocalDatastore(this);
+      //  Parse.enableLocalDatastore(this);
 
         Parse.initialize(this, "m2oyaaVCZTqrJaBL5ieduKr286Pzzj9BLrcFDKhK", "dQySBPL6OjR1gy6uHEecRNNv2JygRQUG3FTAzid3");
         recordcount();
@@ -63,7 +49,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
   //  int reccnt = recordcount();
-
+// me testing github
     final ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
 
     int twoMin = 2 * 60 * 1000; // 2 minutes in milli seconds
