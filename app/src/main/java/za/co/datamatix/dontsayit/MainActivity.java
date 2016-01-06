@@ -45,6 +45,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     ArrayAdapter<String> adapter;
     final ArrayList al = new ArrayList(5);
     long maxFieldNo;
+    ProgressBar progressBar;
+
 
 
 
@@ -53,6 +55,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         // Get the view from listview_main.xml
         setContentView(R.layout.activity_main);
+        progressBar = (ProgressBar)findViewById(R.id.progressbar);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         Parse.enableLocalDatastore(this);
 
@@ -66,12 +69,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     final ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
 
-    int twoMin = 2 * 60 * 1000; // 2 minutes in milli seconds
+
 
     final  CountDownTimer Count = new CountDownTimer(30000, 1000) {
         public void onTick(long millisUntilFinished) {
             int seconds = (int) ((millisUntilFinished / 1000));
-
+            progressBar.setProgress(seconds);
             //  textic.setText(seconds + "seconds " + millisUntilFinished / 1000);
 
         }
@@ -80,6 +83,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
            // adapter.clear();
             adapter.add("Time's up!");
             adapter.notifyDataSetChanged();
+            progressBar.setProgress(0);
             toneGen1.startTone(ToneGenerator.TONE_CDMA_ALERT_INCALL_LITE,1000);
         }
     };
@@ -189,7 +193,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                    al.clear();
                    // Close the progressdialog
                    mProgressDialog.dismiss();
-
+                   progressBar.setProgress(30);
                                      Count.start();
                } else {
                    al.clear();
