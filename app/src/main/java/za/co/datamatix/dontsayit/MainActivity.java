@@ -23,6 +23,7 @@ package za.co.datamatix.dontsayit;
         import android.widget.ArrayAdapter;
         import android.widget.ListView;
         import android.widget.AdapterView.OnItemClickListener;
+        import android.widget.ProgressBar;
         import android.widget.TextView;
         import android.widget.Toast;
 
@@ -45,6 +46,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     final ArrayList al = new ArrayList(5);
     long maxFieldNo;
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     final ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
 
+    int twoMin = 2 * 60 * 1000; // 2 minutes in milli seconds
+
     final  CountDownTimer Count = new CountDownTimer(30000, 1000) {
         public void onTick(long millisUntilFinished) {
             int seconds = (int) ((millisUntilFinished / 1000));
@@ -72,7 +77,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
 
         public void onFinish() {
-            adapter.clear();
+           // adapter.clear();
             adapter.add("Time's up!");
             adapter.notifyDataSetChanged();
             toneGen1.startTone(ToneGenerator.TONE_CDMA_ALERT_INCALL_LITE,1000);
@@ -103,8 +108,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
                   //   Toast.makeText(MainActivity.this, mytext.toString(), Toast.LENGTH_LONG).show();
                 } else {
 
-                    Toast.makeText(MainActivity.this, "query error: " + e, Toast.LENGTH_LONG).show();
-
+                 //   Toast.makeText(MainActivity.this, "query error: " + e, Toast.LENGTH_LONG).show();
+                    Log.d("Don't Say It", "Error: " + e.getMessage());
                 }
 
             }
@@ -190,7 +195,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                    al.clear();
                    mProgressDialog.dismiss();
                    Count.cancel();
-                   Log.d("words", "Error: " + e.getMessage());
+                   Log.d("Don't Say It", "Error: " + e.getMessage());
                }
            }
        });
