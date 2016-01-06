@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+        import android.widget.ProgressBar;
 
-import com.parse.FindCallback;
+        import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
