@@ -41,7 +41,7 @@
             android:max="30"
             android:indeterminate="false"
             android:layout_alignParentBottom="true"
-            android:progress="1"
+            android:progress="0"
             android:progressDrawable="@android:drawable/progress_horizontal"/>
     </LinearLayout>
 
